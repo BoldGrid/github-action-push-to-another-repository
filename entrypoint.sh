@@ -41,6 +41,7 @@ cd $CLONE_DIR
 
 # remove distination
 rm -rf $TARGET_DIR/$DESTINATION_PATH
+mkdir $TARGET_DIR/$DESTINATION_PATH
 
 if [ ! -d "$SOURCE_DIRECTORY" ]
 then
