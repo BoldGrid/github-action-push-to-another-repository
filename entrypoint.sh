@@ -12,6 +12,7 @@ USER_NAME="$5"
 DESTINATION_REPOSITORY_USERNAME="$6"
 TARGET_BRANCH="$7"
 COMMIT_MESSAGE="$8"
+DESTINATION_PATH="$9"
 
 if [ -z "$DESTINATION_REPOSITORY_USERNAME" ]
 then
@@ -36,7 +37,10 @@ TARGET_DIR=$(mktemp -d)
 # This mv has been the easier way to be able to remove files that were there
 # but not anymore. Otherwise we had to remove the files from "$CLONE_DIR",
 # including "." and with the exception of ".git/"
-mv "$CLONE_DIR/.git" "$TARGET_DIR"
+cd $CLONE_DIR
+
+# remove distination
+rm -rf $TARGET_DIR/$DESTINATION_PATH
 
 if [ ! -d "$SOURCE_DIRECTORY" ]
 then
@@ -53,7 +57,7 @@ then
 fi
 
 echo "Copy contents to target git repository"
-cp -ra "$SOURCE_DIRECTORY"/. "$TARGET_DIR"
+cp -ra "$SOURCE_DIRECTORY"/. "$TARGET_DIR/$DESTINATION_PATH"
 cd "$TARGET_DIR"
 
 echo "Files that will be pushed:"
