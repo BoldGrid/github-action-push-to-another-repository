@@ -19,7 +19,6 @@ inputs:
     default: ''
   destination-path:
     description: 'File path destination repo to copy into'
-    default: '.'
     required: true
   destination-repository-username:
     description: '[Optional] Username/organization for the destination repository'
