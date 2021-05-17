@@ -17,6 +17,10 @@ inputs:
     description: '[Optional] Name for the git commit. Defaults to the destination username/organization name'
     required: false
     default: ''
+  destination-path:
+    description: '[Optional] File path destination repo to copy into'
+    default: '.'
+    required: false
   destination-repository-username:
     description: '[Optional] Username/organization for the destination repository'
     required: false
@@ -41,6 +45,7 @@ runs:
     - ${{ inputs.destination-repository-username }}
     - ${{ inputs.target-branch }}
     - ${{ inputs.commit-message }}
+    - ${{ inputs.destination-path }}
 branding:
   icon: 'git-commit'
   color: 'green'
