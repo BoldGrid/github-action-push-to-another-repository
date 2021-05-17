@@ -34,10 +34,6 @@ git clone --single-branch --branch "$TARGET_BRANCH" "https://$USER_NAME:$API_TOK
 ls -la "$CLONE_DIR"
 
 TARGET_DIR=$(mktemp -d)
-# This mv has been the easier way to be able to remove files that were there
-# but not anymore. Otherwise we had to remove the files from "$CLONE_DIR",
-# including "." and with the exception of ".git/"
-cd $CLONE_DIR
 
 # remove distination
 rm -rf $TARGET_DIR/$DESTINATION_PATH
