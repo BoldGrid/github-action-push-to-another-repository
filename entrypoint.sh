@@ -31,9 +31,8 @@ echo "Cloning destination git repository"
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
 git clone --single-branch --branch "$TARGET_BRANCH" "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" "$CLONE_DIR"
-ls -la "$CLONE_DIR"
 
-TARGET_DIR=$(mktemp -d)
+TARGET_DIR=$CLONE_DIR
 
 # remove distination
 rm -rf $TARGET_DIR/$DESTINATION_PATH
